@@ -139,7 +139,7 @@
             
             @keyframes drive {
                 0% {right: 100%}
-                100% {right: -200px; visibility: hidden;}
+                100% {right: -16%; visibility: hidden;}
             }
             
             .outer {

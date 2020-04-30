@@ -159,7 +159,7 @@
             
             @keyframes drive {
                 from {right: 100%;}
-                to {right: -16%;} /* this overflow doesn't work properly */
+                to {right: -16%;}
             }
             
             .road {
