@@ -1,3 +1,4 @@
+
 <!doctype HTML>
 <html>
     <title>CodeRacer</title>
@@ -13,8 +14,15 @@
                 $time = number_format($exec_time,3);
 
                 echo $time;
+                
+                if ($time > 50) {
+                    $message = "you are almost part of the CodeRacer team, give it another shot!";
+                }
+                else {
+                    $message = "you are now part of the CodeRacer team!";
+                }
             ?>
-        </b></font>seconds, you are now part of the renowned team of web design CodeRacer's.</font></div>
+        </b></font>seconds, <?php echo $message ?></font></div>
         <div class="again">
             <form>
                 <input type="submit" name="again" id="again" value="Play Again" formaction="start.php">
@@ -99,7 +107,7 @@
                 animation-name: poptext;
                 animation-iteration-count: 1;
                 animation-fill-mode: forwards;
-                animation-delay: 5s;
+                animation-delay: 3s;
                 animation-duration: 2s;
                 font-size: 22px;
                 z-index: 2;
@@ -114,7 +122,7 @@
                 animation-name: poptext;
                 animation-iteration-count: 1;
                 animation-fill-mode: forwards;
-                animation-delay: 6s;
+                animation-delay: 5s;
                 animation-duration: 2s;
             }
             
@@ -155,7 +163,7 @@
                 width: 200px;
                 animation-name: drive;
                 animation-timing-function: linear;
-                animation-duration: 8s;
+                animation-duration: 5s;
                 animation-iteration-count: 1;
                 animation-fill-mode: forwards;
                 z-index: 2;
