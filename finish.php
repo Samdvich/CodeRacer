@@ -20,8 +20,9 @@
                 <input type="submit" name="again" id="again" value="Play Again" formaction="start.php">
             </form>
         </div>
-                <div class="car">
-            <svg width="200" height="150" version="1.1" viewBox="0 0 640 640" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <div class="outer">
+        <div class="car">
+            <svg overflow="hidden" width="200" height="150" version="1.1" viewBox="0 0 640 640" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                 <defs>
                     <path id="b" d="m565.17 177.31c32.5 0 58.85 26.35 58.85 58.85v139.01c0 32.5-26.35 58.85-58.85 58.85h-461.65c-32.5 0-58.84-26.35-58.84-58.85v-139.01c0-32.5 26.34-58.85 58.84-58.85h461.65z"/>
                     <path id="a" d="m96.24 177.31h-69.76v256.71h69.76v-256.71z"/>
@@ -56,9 +57,9 @@
                 <use fill="#edd451" xlink:href="#i"/>
             </svg>
         </div>
-        <div class="road">
-            <div class="finishline"></div>
         </div>
+        <div class="road"></div>
+        <div class="finishline"></div>
         
         
         <style>
@@ -91,26 +92,25 @@
             
             .poptext {
                 opacity: 0;
-                grid-column: 1 / 2;
-                grid-row: 1 /4;
-                margin: 35px 0 0 35px;
+                grid-column: 1 / 3;
+                grid-row: 1;
+                margin: 35px 10px 0 35px;
                 font-family: 'Source Sans Pro', sans-serif;
                 animation-name: poptext;
                 animation-iteration-count: 1;
                 animation-fill-mode: forwards;
-                animation-delay: 6s;
+                animation-delay: 5s;
                 animation-duration: 2s;
                 font-size: 22px;
                 z-index: 2;
             }
             
             .again {
+                grid-column: 2;
+                grid-row: 3;
+                margin: auto;
                 opacity: 0;
                 color: white;
-                grid-column: 1 / 4;
-                grid-row: 1 / 4;
-                margin: 400px auto auto auto;
-                z-index: 2;
                 animation-name: poptext;
                 animation-iteration-count: 1;
                 animation-fill-mode: forwards;
@@ -142,11 +142,17 @@
                 100% {right: -200px; visibility: hidden;}
             }
             
+            .outer {
+                grid-row: 2;
+                grid-column: 1 / 4;
+                position: relative;
+                overflow: hidden;
+            }
+            
             .car {
                 position: absolute;
                 height: 150px;
                 width: 200px;
-                margin-top: 13%;
                 animation-name: drive;
                 animation-timing-function: linear;
                 animation-duration: 8s;
@@ -157,23 +163,18 @@
             
             .road {
                 grid-column: 1 / 4;
-                grid-row: 1 / 3;
-                margin-top: 14%;
-                padding-right: 200px;
-                height: 30%;
+                grid-row: 2;
+                height: 100%;
                 width: 100%;
                 background-color: darkslategray;
-                z-index: 1;
-                position: absolute;
             }
             
             .finishline {
-                height: 100%;
-                width: 2%;
-                margin-left: 70%;
+                grid-column: 3;
+                grid-row: 2;
                 background-color: white;
-                position: absolute;
-                z-index: 1;
+                width: 10%;
+                height: 100%;
             }
         </style>
     </body>

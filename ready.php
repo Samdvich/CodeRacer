@@ -4,7 +4,7 @@
     <link rel="icon" type="image/png" href="CodeRacer.png" />
     <body>
         <div class="popup"></div>
-      <div class="poptext"><b><font size=5px>Welcome to CodeRacer, </font></b><font size=3px>the game where you learn to get better at code, while having fun playing a game.</font></div>
+        <div class="poptext"><b><font size=5px>Welcome to CodeRacer, </font></b><font size=3px>the game where you learn to get better at code, while having fun playing a game.</font></div>
         <div class="forward">
             <form>
                 <input type="submit" name="forward" id="forward" value="Continue" formaction="showcar.php">
@@ -15,8 +15,10 @@
                 <input type="submit" name="backward" id="backward" value="Return" formaction="start.php">
             </form>
         </div>
-                <div class="car">
-            <svg width="200" height="150" version="1.1" viewBox="0 0 640 640" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <div class="road"></div>
+        <div class='outer'>
+            <div class="car">
+            <svg overflow='hidden' width="200" height="150" version="1.1" viewBox="0 0 640 640" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                 <defs>
                     <path id="b" d="m565.17 177.31c32.5 0 58.85 26.35 58.85 58.85v139.01c0 32.5-26.35 58.85-58.85 58.85h-461.65c-32.5 0-58.84-26.35-58.84-58.85v-139.01c0-32.5 26.34-58.85 58.84-58.85h461.65z"/>
                     <path id="a" d="m96.24 177.31h-69.76v256.71h69.76v-256.71z"/>
@@ -50,8 +52,8 @@
                 <use fill="#edd451" xlink:href="#e"/>
                 <use fill="#edd451" xlink:href="#i"/>
             </svg>
+            </div>
         </div>
-        <div class="road"></div>
         
         <style>
             html {
@@ -67,8 +69,8 @@
                 margin: 0 0 0 0;
                 padding: 0 0 0 0;
                 position: absolute;
-                min-height: 100%;
-                min-width: 100%;
+                height: 100%;
+                width: 100%;
             }
             
             @keyframes pop {
@@ -84,43 +86,44 @@
             .poptext {
                 opacity: 0;
                 grid-column: 1 / 4;
-                grid-row: 1 /4;
-                margin: 60px 490px auto auto;
+                grid-row: 1;
+                margin: 35px 10px 0 35px;
                 font-family: 'Source Sans Pro', sans-serif;
                 animation-name: poptext;
                 animation-iteration-count: 1;
                 animation-fill-mode: forwards;
-                animation-delay: 3s;
                 animation-duration: 2s;
                 font-size: 22px;
                 z-index: 2;
             }
             
             .forward {
+                grid-row: 4;
                 opacity: 0;
                 color: white;
-                grid-column: 1 / 4;
-                grid-row: 1 / 4;
-                margin: 350px 500px auto auto;
+                grid-column: 3;
+                grid-row: 3;
+                margin: auto;
                 z-index: 2;
                 animation-name: poptext;
                 animation-iteration-count: 1;
                 animation-fill-mode: forwards;
-                animation-delay: 3s;
+                animation-delay: 1s;
                 animation-duration: 2s;
             }
             
             .backward {
+                grid-row: 4;
                 opacity: 0;
                 color: white;
-                grid-column: 1 / 4;
-                grid-row: 1 / 4;
-                margin: 350px 780px auto auto;
+                grid-column: 1;
+                grid-row: 3;
+                margin: auto;
                 z-index: 2;
                 animation-name: poptext;
                 animation-iteration-count: 1;
                 animation-fill-mode: forwards;
-                animation-delay: 3s;
+                animation-delay: 1s;
                 animation-duration: 2s;
             }
             
@@ -155,31 +158,36 @@
             }
             
             @keyframes drive {
-                from {left: -200px}
-                to {left: 100%;}
-            }
-            
-            .car {
-                position: absolute;
-                height: 150px;
-                width: 200px;
-                margin-top: 150px;
-                animation-name: drive;
-                animation-timing-function: linear;
-                animation-duration: 5s;
-                animation-iteration-count: infinite;
-                z-index: 2;
+                from {right: 100%;}
+                to {right: -16%;} /* this overflow doesn't work properly */
             }
             
             .road {
                 grid-column: 1 / 4;
-                grid-row: 1 / 3;
-                margin-top: 11%;
-                height: 30%;
+                grid-row: 2;
+                height: 40%;
                 width: 100%;
                 background-color: darkslategray;
-                z-index: 1;
+                z-index: -1;
                 position: absolute;
+            }
+            
+            .outer {
+                grid-row: 2;
+                grid-column: 1 / 4;
+                position: relative;
+                overflow: hidden;
+            }
+            
+            .car {
+                margin: auto;
+                position: absolute;
+                height: 150px;
+                width: 200px;
+                animation-name: drive;
+                animation-timing-function: linear;
+                animation-duration: 5s;
+                animation-iteration-count: infinite;
             }
         </style>
     </body>
