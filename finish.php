@@ -25,7 +25,7 @@
         </b></font>seconds, <?php echo $message ?></font></div>
         <div class="again">
             <form>
-                <input type="submit" name="again" id="again" value="Play Again" formaction="start.php">
+                <input type="submit" name="again" id="again" value="Play Again" formaction="index.php">
             </form>
         </div>
         <div class="outer">
